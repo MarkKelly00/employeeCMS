@@ -1,5 +1,5 @@
 # Employee Tracker CMS
-![License: Mark Kelly](https://img.shields.io/badge/License-Mark_Kelly-brightgreen.svg)]
+![License: Mark Kelly](https://img.shields.io/badge/License-Mark_Kelly-brightgreen.svg)
 
 **C**ontent **M**anagement **S**ystems.
 ```
