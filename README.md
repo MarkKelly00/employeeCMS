@@ -3,6 +3,7 @@
 **C**ontent **M**anagement **S**ystems.
 ```
 Using Node, Inquirer, and MySQL to architect a database for managing a company's employees.
+```
 
 ## Purpose
 ```
