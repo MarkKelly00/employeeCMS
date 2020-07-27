@@ -1,0 +1,30 @@
+{
+  "name": "employeecms",
+  "version": "1.0.0",
+  "description": "Employee Tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkKelly00/employeeCMS.git"
+  },
+  "keywords": [
+    "employee",
+    "tracker",
+    "cms"
+  ],
+  "author": "Mark Kelly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarkKelly00/employeeCMS/issues"
+  },
+  "homepage": "https://github.com/MarkKelly00/employeeCMS#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1",
+    "util": "^0.12.3"
+  }
+}
