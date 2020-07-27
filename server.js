@@ -239,11 +239,11 @@ function addRole() {
                 .then(function(answers) {
                     if (answers.manager_id === 'none') {
                         // insert employee without manager id
-                        con.query('UPDATE movies SET movie = ? WHERE id = ?) VALUES (?, ?, ?);', [answers.first_name, answers.last_name, answers.role_id]);
+                        con.query('UPDATE employee SET role_id = ? WHERE id = ?) VALUES (?, ?, ?);', [answers.first_name, answers.last_name, answers.role_id]);
                     start();
                     } else {
                         // insert employee with manager_id
-                        con.query('UPDATE movies SET movie = ? WHERE id = ?) VALUES (?, ?, ?, ?);', [answers.first_name, answers.last_name, answers.role_id, manager_id]);
+                        con.query('UPDATE employee SET role_id = ? WHERE id = ?) VALUES (?, ?, ?, ?);', [answers.first_name, answers.last_name, answers.role_id, manager_id]);
                     start();
                     }
                     // save employee in the database
