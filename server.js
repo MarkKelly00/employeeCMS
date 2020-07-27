@@ -8,7 +8,7 @@ const con = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "WallyWorld",
+    password: "",
     database: "employee_DB"
 });
 
@@ -41,7 +41,7 @@ function start() {
                 addDpmnt();
             } else if (request.choices === "Add Role") {
                 addRole();
-            } else if (request.choices === "Update Employee") {
+            } else if (request.choices === "Update Employee Roles") {
                 updateEmployee();
             } else {
                 con.end();
@@ -97,7 +97,7 @@ function addRole() {
                         message: 'Select a department:',
                         choices: departments
                     }
-                ])
+                ]);
         })
         .then(function(answers) {
             console.log(answers.dept_id);
@@ -185,7 +185,7 @@ function addRole() {
     function updateEmployee() {
         con.queryPromise('SELECT * FROM employee')
         .then(function(employees) {
-            con.queryPromise('SELECT * FROM first_name' + ' ' + 'last_name')
+            con.queryPromise('SELECT * FROM role')
                 .then(function(update) {
                     employees = employees.map(function(employee) {
                         return {
@@ -239,11 +239,11 @@ function addRole() {
                 .then(function(answers) {
                     if (answers.manager_id === 'none') {
                         // insert employee without manager id
-                        con.query('UPDATE movies SET movie = ? WHERE id = ?) VALUES (?, ?, ?);', [answers.first_name, answers.last_name, answers.role_id]);
+                        con.query('UPDATE employee SET role_id = ? WHERE id = ?,?,?', [answers.employee, answer.new_firstName, answers.new_lastName, answers.new_role]);
                     start();
                     } else {
                         // insert employee with manager_id
-                        con.query('UPDATE movies SET movie = ? WHERE id = ?) VALUES (?, ?, ?, ?);', [answers.first_name, answers.last_name, answers.role_id, manager_id]);
+                        con.query('UPDATE employee SET role_id = ? WHERE id = ?,?,?,?', [answers.employee, answers.new_firstName, answers.new_lastName, answers.new_role, answers.new_manager]);
                     start();
                     }
                     // save employee in the database
@@ -253,14 +253,15 @@ function addRole() {
     }
 
 function viewEmployees() {
-    con.query('SELECT * FROM employee', function(err, rows, fields) {
-        if (err) throw err;
+    con.query('SHOW * FROM employee', function(err, rows,){ 
         console.log(rows);
 
                 employees = employees.map(function(employee) {
                     return {
                         value: employee.id,
                         name: employee.first_name + ' ' + employee.last_name,
+                        role: role_id,
+                        manager: manager_id
                     }
                 });
                 start();
