@@ -20,4 +20,4 @@ This CMS can help you organize and plan your business
 ![DBlayout](Assets/schema.png)
 
 ## Video Walkthrough
-https://drive.google.com/file/d/1Kq4fGJkqY9_xIiJSpVuOlBGak6SVspSR/view
+https://drive.google.com/file/d/1qWyqmAfcat9G8_d4dBGZFyGe_eG1CW8T/view?usp=sharing
